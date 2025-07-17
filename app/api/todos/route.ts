@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs/server";
+import { auth, getAuth } from "@clerk/nextjs/server";
 import prisma from "@/lib/prisma";
 
 const ITEMS_PER_PAGE = 10;
 
 export async function GET(req: NextRequest) {
-  const { userId } = await auth();
+  const { userId } = getAuth(req);
+  console.log("HERE IS AUTH",userId);
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -55,7 +56,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const { userId } = await auth();
+  const { userId } = getAuth(req);
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

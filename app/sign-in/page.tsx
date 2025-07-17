@@ -63,8 +63,8 @@ export default function SignIn() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={submit} className="space-y-4">
              <div id="clerk-captcha" />
+          <form onSubmit={submit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input

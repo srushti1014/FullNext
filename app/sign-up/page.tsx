@@ -86,6 +86,7 @@ export default function SignUp() {
           </CardTitle>
         </CardHeader>
         <CardContent>
+            <div id="clerk-captcha" />
           {!pendingVerification ? (
             <form onSubmit={submit} className="space-y-4">
               <div className="space-y-2">
